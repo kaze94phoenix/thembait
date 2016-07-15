@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Activity'); ?></h1>
+				<h1><?php echo __('Actividade'); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -12,20 +12,17 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
+					<div class="panel-heading">Outras Opcoes</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
+                                                            <?php if ($this->Session->read('Auth.User.usertype_id')==='2'):?>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit Activity'), array('action' => 'edit', $activity['Activity']['id']), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete Activity'), array('action' => 'delete', $activity['Activity']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $activity['Activity']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Activities'), array('action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Activity'), array('action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Stages'), array('controller' => 'stages', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Stage'), array('controller' => 'stages', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Occupations Users'), array('controller' => 'occupations_users', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Occupations User'), array('controller' => 'occupations_users', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Projects'), array('controller' => 'projects', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Project'), array('controller' => 'projects', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
+							<?php endif;?>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Activities'), array('action' => 'index'), array('escape' => false)); ?> </li>
+		
+                                                        </ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
 			</div><!-- end actions -->
@@ -42,21 +39,21 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Designation'); ?></th>
+		<th><?php echo __('Designacao'); ?></th>
 		<td>
 			<?php echo h($activity['Activity']['designation']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Description'); ?></th>
+		<th><?php echo __('Descricao'); ?></th>
 		<td>
 			<?php echo h($activity['Activity']['description']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Stage'); ?></th>
+		<th><?php echo __('Estagio'); ?></th>
 		<td>
 			<?php echo $this->Html->link($activity['Stage']['designation'], array('controller' => 'stages', 'action' => 'view', $activity['Stage']['id'])).'--'.h($activity['Activity']['progress']).'%'; ?>
 			&nbsp;
@@ -71,47 +68,11 @@
 </div>
 
 <div class="related row">
-	<div class="col-md-12">
-	<h3><?php echo __('Related Occupations Users'); ?></h3>
-	<?php if (!empty($activity['OccupationsUser'])): ?>
-	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
-	<thead>
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('User Id'); ?></th>
-		<th><?php echo __('Occupation Id'); ?></th>
-		<th><?php echo __('Activity Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th class="actions"></th>
-	</tr>
-	<thead>
-	<tbody>
-	<?php foreach ($activity['OccupationsUser'] as $occupationsUser): ?>
-		<tr>
-			<td><?php echo $occupationsUser['id']; ?></td>
-			<td><?php echo $occupationsUser['user_id']; ?></td>
-			<td><?php echo $occupationsUser['occupation_id']; ?></td>
-			<td><?php echo $occupationsUser['activity_id']; ?></td>
-			<td><?php echo $occupationsUser['created']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'occupations_users', 'action' => 'view', $occupationsUser['id']), array('escape' => false)); ?>
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'occupations_users', 'action' => 'edit', $occupationsUser['id']), array('escape' => false)); ?>
-				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'occupations_users', 'action' => 'delete', $occupationsUser['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $occupationsUser['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</tbody>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Occupations User'), array('controller' => 'occupations_users', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-	</div>
-	</div><!-- end col md 12 -->
 </div>
 <div class="related row">
 	<div class="col-md-12">
-	<h3><?php echo __('Related Projects'); ?></h3>
+	<h3><?php echo __('Projectos Relacionados'); ?></h3>
 	<?php if (!empty($activity['Project'])): ?>
 	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
 	<thead>

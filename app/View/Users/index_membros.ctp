@@ -55,15 +55,14 @@
 						<td><?php echo h($user['User']['nuit']); ?>&nbsp;</td>
 						<td><?php echo h($user['User']['contact']); ?>&nbsp;</td>
 						<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
+						
 								
-					
+			
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $user['User']['id']), array('escape' => false)); ?>
-							<?php if ($this->Session->read('Auth.User.usertype_id')==='2'): ?>
-                                                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $user['User']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $user['User']['id']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $user['User']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
-						<?php endif; ?>
-                                                </td>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>

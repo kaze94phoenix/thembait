@@ -43,7 +43,7 @@
 					<?php echo $this->Form->input('stage_id', array('class' => 'form-control', 'placeholder' => 'Stage Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('Project', array('class' => 'form-control', 'placeholder' => 'Stage Id'));?>
+					<?php echo $this->Form->hidden('Project', array('class' => 'form-control', 'placeholder' => 'Stage Id'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>

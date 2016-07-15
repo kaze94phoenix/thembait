@@ -204,11 +204,29 @@
               	  <p class="centered"><a href="profile.html"><img src="http://localhost:8080/teste2/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><?php echo $this->Session->read('Auth.User.name')?></h5>
               	  <?php if ($this->Session->read('Auth.User.usertype_id')==='2'): ?>	
+                  <li class="sub-menu dcjq-parent-li">
+                      <a class="active dcjq-parent" href="javascript:;">
+                          <i class="fa fa-cogs"></i>
+                          <span>Parameters</span>
+                      <span class="dcjq-icon"></span></a>
+                      <ul style="display: block;" class="sub">
+                          <li class="active"><a href="<?php echo $this->Html->url('/stages')?>">Stages</a></li>
+                          <li><a href="<?php echo $this->Html->url('/occupations')?>">Occupation</a></li>
+                          <li><a href="<?php echo $this->Html->url('/activities')?>">Activity</a></li>
+                          <li><a href="<?php echo $this->Html->url('/usertypes')?>">User Type</a></li>
+                      </ul>
+                  </li>
                   <li class="mt">
                       
                       <a href="<?php echo $this->Html->url('/users')?>">
                           <i class="fa fa-users"></i>
                           <span>Clients</span>
+                      </a>
+                  </li>
+                  <li class="mt">
+                      <a href="<?php echo $this->Html->url('/users/indexMembros')?>">
+                          <i class="fa fa-users"></i>
+                          <span>Development Members</span>
                       </a>
                   </li>
                   <?php endif; ?>

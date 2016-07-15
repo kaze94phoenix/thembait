@@ -40,7 +40,7 @@
 						<th><?php echo $this->Paginator->sort('description'); ?></th>
 						<th><?php echo $this->Paginator->sort('systemtype'); ?></th>
 						<th><?php echo $this->Paginator->sort('deadline'); ?></th>
-						<th><?php echo $this->Paginator->sort('progress'); ?></th>
+						
 						<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 						<th><?php echo $this->Paginator->sort('activo'); ?></th>
 						<th class="actions"></th>
@@ -54,16 +54,22 @@
 						<td><?php echo h($project['Project']['description']); ?>&nbsp;</td>
 						<td><?php echo h($project['Project']['systemtype']); ?>&nbsp;</td>
 						<td><?php echo h($project['Project']['deadline']); ?>&nbsp;</td>
-						<td><?php echo h($project['Project']['progress']); ?>&nbsp;</td>
+						
 								<td>
 			<?php echo $this->Html->link($project['User']['name'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
-		</td>
-						<td><?php echo h($project['Project']['activo']); ?>&nbsp;</td>
+		</td><?php if (h($project['Project']['activo'])===false): ?>
+						<td><button type="button" class="btn btn-round btn-danger">Inactivo</button>&nbsp;</td>
+                                                <?php endif;?>
+                                                <?php if (h($project['Project']['activo'])===true): ?>
+						<td><button type="button" class="btn btn-round btn-success">Activo</button>&nbsp;</td>
+                                                <?php endif;?>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $project['Project']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $project['Project']['id']), array('escape' => false)); ?>
+							<?php if ($this->Session->read('Auth.User.usertype_id')==='2'):?>
+                                                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $project['Project']['id']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $project['Project']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $project['Project']['id'])); ?>
-						</td>
+						<?php endif;?>
+                                                </td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>

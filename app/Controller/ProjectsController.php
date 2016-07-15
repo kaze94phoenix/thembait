@@ -21,8 +21,19 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function index() {
+            if ($this->Session->read('Auth.User.usertype_id')==='2'):
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->Paginator->paginate());
+                endif;
+            if ($this->Session->read('Auth.User.usertype_id')==='1'):
+                $this->Paginator->settings = array(
+                    'conditions'=>array(
+                        'Project.user_id'=>$this->Session->read('Auth.User.id')
+                    )
+                );
+            $this->Project->recursive = 0;
+		$this->set('projects', $this->Paginator->paginate());
+            endif;
 	}
 
 /**
@@ -86,7 +97,18 @@ class ProjectsController extends AppController {
 		$activities = $this->Project->Activity->find('list');
 		$this->set(compact('users', 'activities'));
 	}
-
+public function preregister(){
+    if ($this->request->is('post')) {
+			$this->Project->create();
+			if ($this->Project->save($this->request->data)) {
+				$this->Session->setFlash(__('The project has been saved.'), 'default', array('class' => 'alert alert-success'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The project could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			}
+		}
+		
+}
 /**
  * edit method
  *

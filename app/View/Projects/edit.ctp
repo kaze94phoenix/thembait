@@ -50,17 +50,15 @@
 					<?php echo $this->Form->input('deadline', array('class' => 'form-control', 'placeholder' => 'Deadline'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('progress', array('class' => 'form-control', 'placeholder' => 'Progress'));?>
+					<?php echo $this->Form->hidden('progress', array('class' => 'form-control', 'placeholder' => 'Progress'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('user_id', array('class' => 'form-control', 'placeholder' => 'User Id'));?>
+					<?php echo $this->Form->hidden('user_id', array('class' => 'form-control', 'placeholder' => 'User Id'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('activo', array('class' => 'form-control', 'placeholder' => 'Activo'));?>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('Activity', array('class' => 'form-control', 'placeholder' => 'Activo'));?>
-				</div>
+				
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
 				</div>

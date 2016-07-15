@@ -56,8 +56,12 @@ class ActivitiesProjectsController extends AppController {
 			}
 		}
 		$projects = $this->ActivitiesProject->Project->find('list');
-		$activities = $this->ActivitiesProject->Activity->find('list');
-		$this->set(compact('projects', 'activities', 'stages'));
+		$activities = $this->ActivitiesProject->Activity->find('list',array(
+                    'fields'=>array(
+                        'Activity.stage',
+                    )
+                ));
+		$this->set(compact('projects', 'activities'));
 	}
 
 /**
@@ -83,9 +87,12 @@ class ActivitiesProjectsController extends AppController {
 			$this->request->data = $this->ActivitiesProject->find('first', $options);
 		}
 		$projects = $this->ActivitiesProject->Project->find('list');
-		$activities = $this->ActivitiesProject->Activity->find('list');
-		$stages = $this->ActivitiesProject->Stage->find('list');
-		$this->set(compact('projects', 'activities', 'stages'));
+		$activities = $this->ActivitiesProject->Activity->find('list',array(
+                    'fields'=>array(
+                        'Activity.stage',
+                    )
+                ));
+		$this->set(compact('projects', 'activities'));
 	}
 
 /**

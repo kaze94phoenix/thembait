@@ -23,8 +23,6 @@
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Project'), array('controller' => 'projects', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Activities'), array('controller' => 'activities', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Activity'), array('controller' => 'activities', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Stages'), array('controller' => 'stages', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Stage'), array('controller' => 'stages', 'action' => 'add'), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -52,6 +50,13 @@
 		<th><?php echo __('Activity'); ?></th>
 		<td>
 			<?php echo $this->Html->link($activitiesProject['Activity']['id'], array('controller' => 'activities', 'action' => 'view', $activitiesProject['Activity']['id'])); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Occupation User Id'); ?></th>
+		<td>
+			<?php echo h($activitiesProject['ActivitiesProject']['occupation_user_id']); ?>
 			&nbsp;
 		</td>
 </tr>

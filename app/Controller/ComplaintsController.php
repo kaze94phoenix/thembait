@@ -55,7 +55,11 @@ class ComplaintsController extends AppController {
 				$this->Session->setFlash(__('The complaint could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$projects = $this->Complaint->Project->find('list');
+		$projects = $this->Complaint->Project->find('list', array(
+                    'conditions'=>array(
+                        'Project.user_id'=>$this->Session->read('Auth.User.id')
+                    )
+                ));
 		$this->set(compact('projects'));
 	}
 

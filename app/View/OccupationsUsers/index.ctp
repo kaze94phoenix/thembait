@@ -38,7 +38,6 @@
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
 						<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 						<th><?php echo $this->Paginator->sort('occupation_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('activity_id'); ?></th>
 						<th><?php echo $this->Paginator->sort('created'); ?></th>
 						<th class="actions"></th>
 					</tr>
@@ -52,9 +51,6 @@
 		</td>
 								<td>
 			<?php echo $this->Html->link($occupationsUser['Occupation']['id'], array('controller' => 'occupations', 'action' => 'view', $occupationsUser['Occupation']['id'])); ?>
-		</td>
-								<td>
-			<?php echo $this->Html->link($occupationsUser['Activity']['id'], array('controller' => 'activities', 'action' => 'view', $occupationsUser['Activity']['id'])); ?>
 		</td>
 						<td><?php echo h($occupationsUser['OccupationsUser']['created']); ?>&nbsp;</td>
 						<td class="actions">

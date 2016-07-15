@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Jul-2016 às 01:38
+-- Generation Time: 15-Jul-2016 às 17:18
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `stage_id` int(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `stage_id` (`stage_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Extraindo dados da tabela `activities`
@@ -41,7 +41,9 @@ CREATE TABLE IF NOT EXISTS `activities` (
 
 INSERT INTO `activities` (`id`, `designation`, `description`, `stage_id`) VALUES
 (3, 'Modelacao', '', 3),
-(4, 'Codificacao', '', 4);
+(4, 'Codificacao', '', 4),
+(5, 'Testagem', 'Teste do sw', 3),
+(6, 'Implementacao', 'implementar sofwtware na empresa', 5);
 
 -- --------------------------------------------------------
 
@@ -53,20 +55,23 @@ CREATE TABLE IF NOT EXISTS `activities_projects` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `project_id` int(255) NOT NULL,
   `activity_id` int(255) NOT NULL,
+  `occupations_user_id` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_p_a` (`project_id`,`activity_id`),
   KEY `project_id` (`project_id`,`activity_id`),
-  KEY `activity_id` (`activity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  KEY `activity_id` (`activity_id`),
+  KEY `occupation_user_id` (`occupations_user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Extraindo dados da tabela `activities_projects`
 --
 
-INSERT INTO `activities_projects` (`id`, `project_id`, `activity_id`) VALUES
-(3, 2, 3),
-(6, 2, 4),
-(9, 3, 3);
+INSERT INTO `activities_projects` (`id`, `project_id`, `activity_id`, `occupations_user_id`) VALUES
+(3, 2, 3, 0),
+(6, 2, 4, 0),
+(9, 3, 3, 0),
+(12, 2, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -145,10 +150,8 @@ CREATE TABLE IF NOT EXISTS `occupations_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `occupation_id` int(11) NOT NULL,
-  `activity_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `activity_id` (`activity_id`),
   KEY `user_id` (`user_id`),
   KEY `occupation_id` (`occupation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -170,14 +173,14 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `activo` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Extraindo dados da tabela `projects`
 --
 
 INSERT INTO `projects` (`id`, `name`, `description`, `systemtype`, `deadline`, `progress`, `user_id`, `activo`) VALUES
-(2, 'Aplicacao para apoia ao combate a corrupcao', 'sera uma aplicacao web e mobile com o intuito de permitir a participacao do cidadao na luta a corrupcao', 'Web e Mobile', '2016-07-05', NULL, 5, 0),
+(2, 'Aplicacao para apoia ao combate a corrupcao', 'sera uma aplicacao web e mobile com o intuito de permitir a participacao do cidadao na luta a corrupcao', 'Web e Mobile', '2016-07-05', NULL, 5, 1),
 (3, 'MozDocs', 'para tratamento de documentos', 'Web e Mobile', '2016-07-05', NULL, 5, 0);
 
 -- --------------------------------------------------------
@@ -230,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `datebirth`, `nuit`, `contact`, `username`, `password`, `usertype_id`, `occupation_id`) VALUES
 (4, 'Celso Maxlhaieie', '2016-07-05', 43422464, '', 'kaze@xava.com', 'bb5363c45986effbcf26fed3036e54b36aa656c4', 2, 1),
-(5, 'Osvaldo Maria', '2016-07-05', 6484684, '', 'om@xava.com', 'bb5363c45986effbcf26fed3036e54b36aa656c4', 1, 1);
+(5, 'Osvaldo Maria', '2016-07-05', 6484684, '', 'om@xava.com', 'bb5363c45986effbcf26fed3036e54b36aa656c4', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -249,8 +252,8 @@ CREATE TABLE IF NOT EXISTS `usertypes` (
 --
 
 INSERT INTO `usertypes` (`id`, `designation`) VALUES
-(1, 'Cliente'),
-(2, 'Membro de Equipa de Desenvolvimento');
+(1, 'Normal'),
+(2, 'Admin');
 
 --
 -- Constraints for dumped tables
@@ -281,8 +284,7 @@ ALTER TABLE `complaints`
 --
 ALTER TABLE `occupations_users`
   ADD CONSTRAINT `occupations_users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `occupations_users_ibfk_2` FOREIGN KEY (`occupation_id`) REFERENCES `occupations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `occupations_users_ibfk_3` FOREIGN KEY (`activity_id`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `occupations_users_ibfk_2` FOREIGN KEY (`occupation_id`) REFERENCES `occupations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `projects`

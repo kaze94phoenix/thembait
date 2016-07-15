@@ -5,7 +5,6 @@ App::uses('AppModel', 'Model');
  *
  * @property User $User
  * @property Occupation $Occupation
- * @property Activity $Activity
  */
 class OccupationsUser extends AppModel {
 
@@ -35,16 +34,6 @@ class OccupationsUser extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'activity_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -65,13 +54,6 @@ class OccupationsUser extends AppModel {
 		'Occupation' => array(
 			'className' => 'Occupation',
 			'foreignKey' => 'occupation_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Activity' => array(
-			'className' => 'Activity',
-			'foreignKey' => 'activity_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

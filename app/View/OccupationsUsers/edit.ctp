@@ -44,9 +44,6 @@
 					<?php echo $this->Form->input('occupation_id', array('class' => 'form-control', 'placeholder' => 'Occupation Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('activity_id', array('class' => 'form-control', 'placeholder' => 'Activity Id'));?>
-				</div>
-				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
 				</div>
 

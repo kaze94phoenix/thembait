@@ -23,14 +23,12 @@
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Project'), array('controller' => 'projects', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Activities'), array('controller' => 'activities', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Activity'), array('controller' => 'activities', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Stages'), array('controller' => 'stages', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Stage'), array('controller' => 'stages', 'action' => 'add'), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
 			</div><!-- end actions -->
 		</div><!-- end col md 3 -->
-<?php print_r($activitiesProjects) ?>
+
 		<div class="col-md-9">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
@@ -49,7 +47,7 @@
 			<?php echo $this->Html->link($activitiesProject['Project']['name'], array('controller' => 'projects', 'action' => 'view', $activitiesProject['Project']['id'])); ?>
 		</td>
 								<td>
-			<?php echo $this->Html->link($activitiesProject['Activity']['designation'], array('controller' => 'activities', 'action' => 'view', $activitiesProject['Activity']['id'])).'--'.h($activitiesProject['ActivitiesProject']['progress']).'%'; ?>
+			<?php echo $this->Html->link($activitiesProject['Activity']['stage'], array('controller' => 'activities', 'action' => 'view', $activitiesProject['Activity']['id'])); ?>
 		</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $activitiesProject['ActivitiesProject']['id']), array('escape' => false)); ?>

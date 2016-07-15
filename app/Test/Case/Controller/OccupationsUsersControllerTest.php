@@ -21,6 +21,7 @@ class OccupationsUsersControllerTest extends ControllerTestCase {
 		'app.complaint',
 		'app.project',
 		'app.activity',
+		'app.stage',
 		'app.activities_project'
 	);
 

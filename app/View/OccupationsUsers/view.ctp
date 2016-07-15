@@ -56,13 +56,6 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Activity'); ?></th>
-		<td>
-			<?php echo $this->Html->link($occupationsUser['Activity']['id'], array('controller' => 'activities', 'action' => 'view', $occupationsUser['Activity']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
 		<th><?php echo __('Created'); ?></th>
 		<td>
 			<?php echo h($occupationsUser['OccupationsUser']['created']); ?>

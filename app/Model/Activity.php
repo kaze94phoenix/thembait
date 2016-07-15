@@ -39,6 +39,7 @@ class Activity extends AppModel {
         
         public $virtualFields = array (
 	'progress'=>'SELECT valor FROM stages where id=Activity.stage_id',
+        'stage'=>'concat(Activity.designation,"-",Activity.stage_id)'
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -57,27 +58,15 @@ class Activity extends AppModel {
 			'order' => ''
 		)
 	);
+        
+        
 
 /**
  * hasMany associations
  *
  * @var array
  */
-	public $hasMany = array(
-		'OccupationsUser' => array(
-			'className' => 'OccupationsUser',
-			'foreignKey' => 'activity_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
+	
 
 
 /**
