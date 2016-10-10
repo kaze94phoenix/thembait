@@ -54,9 +54,16 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Occupation User Id'); ?></th>
+		<th><?php echo __('Stage Id'); ?></th>
 		<td>
-			<?php echo h($activitiesProject['ActivitiesProject']['occupation_user_id']); ?>
+			<?php echo h($activitiesProject['ActivitiesProject']['stage_id']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Occupations User Id'); ?></th>
+		<td>
+			<?php echo h($activitiesProject['ActivitiesProject']['occupations_user_id']); ?>
 			&nbsp;
 		</td>
 </tr>

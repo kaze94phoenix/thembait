@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Actividade'); ?></h1>
+				<h1><?php echo __('Activity'); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -12,17 +12,18 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading">Outras Opcoes</div>
+					<div class="panel-heading">Actions</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-                                                            <?php if ($this->Session->read('Auth.User.usertype_id')==='2'):?>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit Activity'), array('action' => 'edit', $activity['Activity']['id']), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete Activity'), array('action' => 'delete', $activity['Activity']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $activity['Activity']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Activities'), array('action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Activity'), array('action' => 'add'), array('escape' => false)); ?> </li>
-							<?php endif;?>
-                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Activities'), array('action' => 'index'), array('escape' => false)); ?> </li>
-		
-                                                        </ul>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Stages'), array('controller' => 'stages', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Stage'), array('controller' => 'stages', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Projects'), array('controller' => 'projects', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Project'), array('controller' => 'projects', 'action' => 'add'), array('escape' => false)); ?> </li>
+							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
 			</div><!-- end actions -->
@@ -39,23 +40,23 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Designacao'); ?></th>
+		<th><?php echo __('Designation'); ?></th>
 		<td>
 			<?php echo h($activity['Activity']['designation']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Descricao'); ?></th>
+		<th><?php echo __('Description'); ?></th>
 		<td>
 			<?php echo h($activity['Activity']['description']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Estagio'); ?></th>
+		<th><?php echo __('Stage'); ?></th>
 		<td>
-			<?php echo $this->Html->link($activity['Stage']['designation'], array('controller' => 'stages', 'action' => 'view', $activity['Stage']['id'])).'--'.h($activity['Activity']['progress']).'%'; ?>
+			<?php echo $this->Html->link($activity['Stage']['id'], array('controller' => 'stages', 'action' => 'view', $activity['Stage']['id'])); ?>
 			&nbsp;
 		</td>
 </tr>
@@ -68,11 +69,8 @@
 </div>
 
 <div class="related row">
-
-</div>
-<div class="related row">
 	<div class="col-md-12">
-	<h3><?php echo __('Projectos Relacionados'); ?></h3>
+	<h3><?php echo __('Related Projects'); ?></h3>
 	<?php if (!empty($activity['Project'])): ?>
 	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
 	<thead>

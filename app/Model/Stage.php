@@ -4,6 +4,7 @@ App::uses('AppModel', 'Model');
  * Stage Model
  *
  * @property Activity $Activity
+ * @property ActivitiesProject $ActivitiesProject
  */
 class Stage extends AppModel {
 
@@ -35,6 +36,19 @@ class Stage extends AppModel {
 	public $hasMany = array(
 		'Activity' => array(
 			'className' => 'Activity',
+			'foreignKey' => 'stage_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'ActivitiesProject' => array(
+			'className' => 'ActivitiesProject',
 			'foreignKey' => 'stage_id',
 			'dependent' => false,
 			'conditions' => '',

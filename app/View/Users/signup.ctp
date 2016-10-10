@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>Sign Up</h1>
+				<h1>Registro de Conta</h1>
 			</div>
 		</div>
 	</div>
@@ -15,16 +15,16 @@
 			<?php echo $this->Form->create('User', array('role' => 'form','class'=>'form-login')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Name'));?>
+					<?php echo $this->Form->input('name', array('label'=>'Nome','class' => 'form-control', 'placeholder' => 'Name'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('datebirth', array('class' => 'form-control', 'placeholder' => 'Datebirth'));?>
+					<?php echo $this->Form->input('datebirth', array('label'=>'Data de Nascimento','class' => 'form-control', 'placeholder' => 'Datebirth'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('nuit', array('class' => 'form-control', 'placeholder' => 'Nuit'));?>
+					<?php echo $this->Form->input('nuit', array('label'=>'NUIT','class' => 'form-control', 'placeholder' => 'Nuit'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('contact', array('class' => 'form-control', 'placeholder' => 'Contact'));?>
+					<?php echo $this->Form->input('contact', array('label'=>'Contacto Telefonico','class' => 'form-control', 'placeholder' => 'Contact'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('username', array('class' => 'form-control', 'placeholder' => 'Username'));?>
@@ -39,7 +39,7 @@
 					<?php echo $this->Form->hidden('occupation_id', array('value'=>'4','class' => 'form-control', 'placeholder' => 'Occupation Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
+					<?php echo $this->Form->submit(__('Submeter'), array('class' => 'btn btn-default')); ?>
 				</div>
 
 			<?php echo $this->Form->end() ?>

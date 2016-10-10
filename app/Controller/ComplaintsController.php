@@ -21,8 +21,20 @@ class ComplaintsController extends AppController {
  * @return void
  */
 	public function index() {
+            if ($this->Session->read('Auth.User.usertype_id')==='2'):
 		$this->Complaint->recursive = 0;
 		$this->set('complaints', $this->Paginator->paginate());
+            endif;
+                 if ($this->Session->read('Auth.User.usertype_id')==='1'):
+                $this->Paginator->settings = array(
+                    'conditions'=>array(
+                        'Complaint.user'=>$this->Session->read('Auth.User.id')
+                    )
+                );
+                 $this->Complaint->recursive = 0;
+		$this->set('complaints', $this->Paginator->paginate());
+            endif;
+                 
 	}
 
 /**

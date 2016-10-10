@@ -112,7 +112,7 @@
 
 <div class="related row">
 	<div class="col-md-12">
-	<h3><?php echo __('Related Complaints'); ?></h3>
+	<h3><?php echo __('Reclamacoes Relacionadas'); ?></h3>
 	<?php if (!empty($project['Complaint'])): ?>
 	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
 	<thead>
@@ -181,7 +181,7 @@
 <?php endif; ?>
 <?php if ($this->Session->read('Auth.User.usertype_id')==='2'):?>
 	<div class="actions">
-		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Activity'), array('controller' => 'activities', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nova Actividade'), array('controller' => 'activities', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 	</div>
         <?php endif;?>
 	</div><!-- end col md 12 -->

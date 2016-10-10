@@ -12,29 +12,29 @@
                             </div>
                             
                         
-		        <h2 class="form-login-heading">sign in now</h2>
+		        <h2 class="form-login-heading">entre ja!</h2>
 		        <div class="login-wrap">
 		            <?php echo $this->Form->input('username',array('type'=>'text','class'=>'form-control','placeholder'=>'Enter username'));?>
 		            <br>
 		            <?php echo $this->Form->input('password',array('class'=>'form-control','placeholder'=>'Enter password', 'type'=>'password'));?>
 		            <label class="checkbox">
 		                <span class="pull-right">
-		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+		                    <a data-toggle="modal" href="login.html#myModal"> Esqueceste Senha?</a>
 		
 		                </span>
 		            </label>
-		            <?php echo $this->Form->submit('Login', array('class'=>'btn btn-theme btn-block'));?><i class="fa fa-lock"></i> SIGN IN</button>
+		            <?php echo $this->Form->submit('Entrar', array('class'=>'btn btn-theme btn-block'));?><i class="fa fa-lock"></i> SIGN IN</button>
 		            <hr>
 		            
 		            <div class="login-social-link centered">
-		            <p>or you can sign in via your social network</p>
+		            <p>Ou podes entrar via redes sociais</p>
 		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
 		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
 		            </div>
 		            <div class="registration">
-		                Don't have an account yet?<br/>
-		                <a class="" href="#">
-		                    Create an account
+		                Nao tem conta?<br/>
+		                <a class="" href="<?php echo $this->Html->url('/users/signup')?>">
+		                    Crie uma conta
 		                </a>
 		            </div>
 		

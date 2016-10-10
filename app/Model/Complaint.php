@@ -62,7 +62,9 @@ class Complaint extends AppModel {
 			'order' => ''
 		)
 	);
-
+public $virtualFields=array(
+    'user'=>'select user_id from projects where id=Complaint.project_id'
+);
 /**
  * hasMany associations
  *

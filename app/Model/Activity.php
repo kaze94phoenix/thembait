@@ -4,12 +4,11 @@ App::uses('AppModel', 'Model');
  * Activity Model
  *
  * @property Stage $Stage
- * @property OccupationsUser $OccupationsUser
  * @property Project $Project
  */
 class Activity extends AppModel {
-
 /**
+ 
  * Validation rules
  *
  * @var array
@@ -37,9 +36,12 @@ class Activity extends AppModel {
 		),
 	);
         
+        
+       
         public $virtualFields = array (
-	'progress'=>'SELECT valor FROM stages where id=Activity.stage_id',
-        'stage'=>'concat(Activity.designation,"-",Activity.stage_id)'
+            
+	//'progress'=>'SELECT valor FROM stages where ActivitiesProject.activity_id=Activity.id AND id=ActivitiesProject.stage_id',
+        //'stage'=>'concat(Activity.designation,"-",Activity.stage_id)'
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -58,16 +60,6 @@ class Activity extends AppModel {
 			'order' => ''
 		)
 	);
-        
-        
-
-/**
- * hasMany associations
- *
- * @var array
- */
-	
-
 
 /**
  * hasAndBelongsToMany associations

@@ -79,7 +79,7 @@ public function beforeFilter(){
 
 		$this->Auth->error=__('Erro , nao estas permitido a aceder este recurso');
 
-		$this->Auth->allowedActions = array('login','display','add');
+		$this->Auth->allowedActions = array('login','display','add','signup');
 	}
         public function isAuthorized($user=null)
 	{

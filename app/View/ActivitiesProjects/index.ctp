@@ -33,9 +33,10 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
-						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('project_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('activity_id'); ?></th>
+						<th>ID<?php //echo $this->Paginator->sort('id'); ?></th>
+						<th>Projecto<?php //echo $this->Paginator->sort('project_id'); ?></th>
+						<th>Actividade<?php //echo $this->Paginator->sort('activity_id'); ?></th>
+						<th>Estagio<?php //echo $this->Paginator->sort('stage_id'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -47,8 +48,9 @@
 			<?php echo $this->Html->link($activitiesProject['Project']['name'], array('controller' => 'projects', 'action' => 'view', $activitiesProject['Project']['id'])); ?>
 		</td>
 								<td>
-			<?php echo $this->Html->link($activitiesProject['Activity']['stage'], array('controller' => 'activities', 'action' => 'view', $activitiesProject['Activity']['id'])); ?>
+			<?php echo $this->Html->link($activitiesProject['Activity']['designation'], array('controller' => 'activities', 'action' => 'view', $activitiesProject['Activity']['id'])); ?>
 		</td>
+						<td><?php echo $this->Html->link($activitiesProject['Stage']['designation'], array('controller' => 'stages', 'action' => 'view', $activitiesProject['Stage']['id'])); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $activitiesProject['ActivitiesProject']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $activitiesProject['ActivitiesProject']['id']), array('escape' => false)); ?>

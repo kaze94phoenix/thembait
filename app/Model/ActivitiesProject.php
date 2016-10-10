@@ -5,7 +5,8 @@ App::uses('AppModel', 'Model');
  *
  * @property Project $Project
  * @property Activity $Activity
- * @property OccupationUser $OccupationUser
+ * @property Stage $Stage
+ * @property OccupationsUser $OccupationsUser
  */
 class ActivitiesProject extends AppModel {
 
@@ -35,7 +36,7 @@ class ActivitiesProject extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'occupation_user_id' => array(
+		'stage_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -46,6 +47,10 @@ class ActivitiesProject extends AppModel {
 			),
 		),
 	);
+        
+        public $virtualFields=array(
+            'progress'=>'select valor from stages where id=ActivitiesProject.stage_id'
+        );
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -69,6 +74,19 @@ class ActivitiesProject extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		
+		'Stage' => array(
+			'className' => 'Stage',
+			'foreignKey' => 'stage_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'OccupationsUser' => array(
+			'className' => 'OccupationsUser',
+			'foreignKey' => 'occupations_user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
 	);
 }

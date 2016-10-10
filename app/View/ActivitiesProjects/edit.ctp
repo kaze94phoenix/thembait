@@ -42,7 +42,10 @@
 					<?php echo $this->Form->input('activity_id', array('class' => 'form-control', 'placeholder' => 'Activity Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('occupation_user_id', array('class' => 'form-control', 'placeholder' => 'Occupation User Id'));?>
+					<?php echo $this->Form->input('stage_id', array('class' => 'form-control', 'placeholder' => 'Stage Id'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('occupations_user_id', array('class' => 'form-control', 'placeholder' => 'Occupations User Id'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>

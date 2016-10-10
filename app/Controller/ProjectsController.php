@@ -44,7 +44,7 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-            $this->loadModel('Activity');
+            $this->loadModel('Stage');
 		if (!$this->Project->exists($id)) {
 			throw new NotFoundException(__('Invalid project'));
 		}
@@ -52,7 +52,7 @@ class ProjectsController extends AppController {
 		$this->set('project', $this->Project->find('first', $options));
                 $progress = $this->Project->ActivitiesProject->find('list',array(
                     'fields'=>array(
-                        'ActivitiesProject.activity_id'
+                        'ActivitiesProject.stage_id'
                     ),
                     'conditions'=>array(
                         'ActivitiesProject.project_id'=>$id
@@ -65,12 +65,12 @@ class ProjectsController extends AppController {
                 ));
                 $aux=array();
                 foreach ($progress as $progress):
-                    array_push($aux,array_sum($this->Activity->find('list',array(
+                    array_push($aux,array_sum($this->Stage->find('list',array(
                         'fields'=>array(
-                            'Activity.progress'
+                            'Stage.valor'
                         ),
                         'conditions'=>array(
-                            'Activity.id'=>$progress
+                            'Stage.id'=>$progress
                         )
                     ))));
                 endforeach;

@@ -55,11 +55,7 @@ class ActivitiesController extends AppController {
 				$this->Session->setFlash(__('The activity could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$stages = $this->Activity->Stage->find('list',array(
-                    'fields'=>array(
-                        'Stage.designation'
-                    )
-                ));
+		$stages = $this->Activity->Stage->find('list');
 		$projects = $this->Activity->Project->find('list');
 		$this->set(compact('stages', 'projects'));
 	}
@@ -86,11 +82,7 @@ class ActivitiesController extends AppController {
 			$options = array('conditions' => array('Activity.' . $this->Activity->primaryKey => $id));
 			$this->request->data = $this->Activity->find('first', $options);
 		}
-		$stages = $this->Activity->Stage->find('list',array(
-                    'fields'=>array(
-                        'Stage.designation'
-                    )
-                ));
+		$stages = $this->Activity->Stage->find('list');
 		$projects = $this->Activity->Project->find('list');
 		$this->set(compact('stages', 'projects'));
 	}

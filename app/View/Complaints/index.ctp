@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Complaints'); ?></h1>
+				<h1><?php echo __('Reclamacoes'); ?></h1>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -15,16 +15,16 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
+					<div class="panel-heading">Outras Opcoes</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
                                                             <?php if ($this->Session->read('Auth.User.usertype_id')==='1'):?>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Complaint'), array('action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nova Reclamacao'), array('action' => 'add'), array('escape' => false)); ?></li>
                                                                 <?php endif;?>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Projects'), array('controller' => 'projects', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Answers'), array('controller' => 'answers', 'action' => 'index'), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Projectos'), array('controller' => 'projects', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Respostas'), array('controller' => 'answers', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<?php if ($this->Session->read('Auth.User.usertype_id')==='2'):?>
-                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Answer'), array('controller' => 'answers', 'action' => 'add'), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Novas Respostas'), array('controller' => 'answers', 'action' => 'add'), array('escape' => false)); ?> </li>
 							<?php endif;?>
                                                         </ul>
 						</div><!-- end body -->
@@ -36,10 +36,10 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
-						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('title'); ?></th>
-						<th><?php echo $this->Paginator->sort('description'); ?></th>
-						<th><?php echo $this->Paginator->sort('project_id'); ?></th>
+						<th>ID<?php //echo $this->Paginator->sort('id'); ?></th>
+						<th>Titulo<?php //echo $this->Paginator->sort('title'); ?></th>
+						<th>Descricao<?php //echo $this->Paginator->sort('description'); ?></th>
+						<th>Projecto<?php //echo $this->Paginator->sort('project_id'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -64,7 +64,7 @@
 			</table>
 
 			<p>
-				<small><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?></small>
+				<small><?php echo $this->Paginator->counter(array('format' => __('Pagina {:page} de {:pages}, mostrando {:current} registos de {:count} total, comecando no registo {:start}, terminando no {:end}')));?></small>
 			</p>
 
 			<?php

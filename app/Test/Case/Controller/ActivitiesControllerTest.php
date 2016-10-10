@@ -15,13 +15,13 @@ class ActivitiesControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.activity',
 		'app.stage',
-		'app.occupations_user',
+		'app.project',
 		'app.user',
 		'app.usertype',
 		'app.occupation',
+		'app.occupations_user',
 		'app.answer',
 		'app.complaint',
-		'app.project',
 		'app.activities_project'
 	);
 

@@ -186,7 +186,7 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="http://localhost:8080/thembait/users/logout">Logout</a></li>
+                    <li><a class="logout" href="<?php echo $this->Html->url('/users/logout')?>">Sair</a></li>
             	</ul>
             </div>
         </header>
@@ -207,33 +207,33 @@
                   <li class="sub-menu dcjq-parent-li">
                       <a class="active dcjq-parent" href="javascript:;">
                           <i class="fa fa-cogs"></i>
-                          <span>Parameters</span>
+                          <span>Parametrizacao</span>
                       <span class="dcjq-icon"></span></a>
                       <ul style="display: block;" class="sub">
-                          <li class="active"><a href="<?php echo $this->Html->url('/stages')?>">Stages</a></li>
-                          <li><a href="<?php echo $this->Html->url('/occupations')?>">Occupation</a></li>
-                          <li><a href="<?php echo $this->Html->url('/activities')?>">Activity</a></li>
-                          <li><a href="<?php echo $this->Html->url('/usertypes')?>">User Type</a></li>
+                          <li class="active"><a href="<?php echo $this->Html->url('/stages')?>">Estagios</a></li>
+                          <li><a href="<?php echo $this->Html->url('/occupations')?>">Funcao</a></li>
+                          <li><a href="<?php echo $this->Html->url('/activities')?>">Actividade</a></li>
+                          <li><a href="<?php echo $this->Html->url('/usertypes')?>">Tipo de Utilizador</a></li>
                       </ul>
                   </li>
                   <li class="mt">
                       
                       <a href="<?php echo $this->Html->url('/users')?>">
                           <i class="fa fa-users"></i>
-                          <span>Clients</span>
+                          <span>Clientes</span>
                       </a>
                   </li>
                   <li class="mt">
                       <a href="<?php echo $this->Html->url('/users/indexMembros')?>">
                           <i class="fa fa-users"></i>
-                          <span>Development Members</span>
+                          <span>Staff de Desenvolvimento</span>
                       </a>
                   </li>
                   <?php endif; ?>
                   <li class="sub-menu">
                       <a href="<?php echo $this->Html->url('/projects')?>" >
                           <i class="fa fa-film"></i>
-                          <span>Projects</span>
+                          <span>Projectos</span>
                       </a>
                       
                   </li>
@@ -241,7 +241,7 @@
                   <li class="sub-menu">
                       <a href="<?php echo $this->Html->url('/complaints')?>" >
                           <i class="fa fa-exchange"></i>
-                          <span>Complaints</span>
+                          <span>Reclamacoes</span>
                       </a>
                       
                   </li>
