@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Add Project'); ?></h1>
+				<h1><?php echo __('Registar Projecto'); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -14,17 +14,17 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
+					<div class="panel-heading">Outras accoes</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 
-																<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Projects'), array('action' => 'index'), array('escape' => false)); ?></li>
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Users'), array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Complaints'), array('controller' => 'complaints', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Complaint'), array('controller' => 'complaints', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Activities'), array('controller' => 'activities', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Activity'), array('controller' => 'activities', 'action' => 'add'), array('escape' => false)); ?> </li>
+																<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Projectos'), array('action' => 'index'), array('escape' => false)); ?></li>
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Utilizadores'), array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Novo Utilizador'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Reclamacoes'), array('controller' => 'complaints', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nova Reclamacao'), array('controller' => 'complaints', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Actividades'), array('controller' => 'activities', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nova Actividade'), array('controller' => 'activities', 'action' => 'add'), array('escape' => false)); ?> </li>
 							</ul>
 						</div>
 					</div>
@@ -34,31 +34,31 @@
 			<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Name'));?>
+					<?php echo $this->Form->input('name', array('label'=>'Nome','class' => 'form-control', 'placeholder' => 'Name'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('description', array('class' => 'form-control', 'placeholder' => 'Description'));?>
+					<?php echo $this->Form->input('description', array('label'=>'Descricao','class' => 'form-control', 'placeholder' => 'Description'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('systemtype', array('class' => 'form-control', 'placeholder' => 'Systemtype'));?>
+					<?php echo $this->Form->input('systemtype', array('label'=>'Tipo de Sistema','class' => 'form-control', 'placeholder' => 'Systemtype'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('deadline', array('class' => 'form-control', 'placeholder' => 'Deadline'));?>
+					<?php echo $this->Form->input('deadline', array('label'=>'Prazo','class' => 'form-control', 'placeholder' => 'Deadline'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('progress', array('class' => 'form-control', 'placeholder' => 'Progress'));?>
+					<?php echo $this->Form->input('progress', array('label'=>'Progresso','class' => 'form-control', 'placeholder' => 'Progress'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('user_id', array('class' => 'form-control', 'placeholder' => 'User Id'));?>
+					<?php echo $this->Form->input('user_id', array('label'=>'Cliente','class' => 'form-control', 'placeholder' => 'User Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('activo', array('class' => 'form-control', 'placeholder' => 'Activo'));?>
+					<?php echo $this->Form->input('activo', array('label'=>'Activo','class' => 'form-control', 'placeholder' => 'Activo'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('Activity', array('class' => 'form-control', 'placeholder' => 'Activo'));?>
+					<?php echo $this->Form->input('Activity', array('label'=>'Actividade','class' => 'form-control', 'placeholder' => 'Activo'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
+					<?php echo $this->Form->submit(__('Submeter'), array('class' => 'btn btn-default')); ?>
 				</div>
 
 			<?php echo $this->Form->end() ?>

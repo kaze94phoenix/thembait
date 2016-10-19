@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Occupation'); ?></h1>
+				<h1><?php echo __('Ocupacao'); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -12,15 +12,15 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
+					<div class="panel-heading">Outras Accoes</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit Occupation'), array('action' => 'edit', $occupation['Occupation']['id']), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete Occupation'), array('action' => 'delete', $occupation['Occupation']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $occupation['Occupation']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Occupations'), array('action' => 'index'), array('escape' => false)); ?> </li>
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Ocupacao'), array('action' => 'edit', $occupation['Occupation']['id']), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Apagar Ocupacao'), array('action' => 'delete', $occupation['Occupation']['id']), array('escape' => false), __('Tens a certeza que queres apagar # %s?', $occupation['Occupation']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Ocupacoes'), array('action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Occupation'), array('action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Users'), array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Utilizadores'), array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;Novo Utilizador'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -38,7 +38,7 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Designation'); ?></th>
+		<th><?php echo __('Designacao'); ?></th>
 		<td>
 			<?php echo h($occupation['Occupation']['designation']); ?>
 			&nbsp;
@@ -54,20 +54,20 @@
 
 <div class="related row">
 	<div class="col-md-12">
-	<h3><?php echo __('Related Users'); ?></h3>
+	<h3><?php echo __('Utilizadores Relacionados'); ?></h3>
 	<?php if (!empty($occupation['User'])): ?>
 	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
 	<thead>
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Datebirth'); ?></th>
-		<th><?php echo __('Nuit'); ?></th>
-		<th><?php echo __('Contact'); ?></th>
-		<th><?php echo __('Username'); ?></th>
-		<th><?php echo __('Password'); ?></th>
-		<th><?php echo __('Usertype Id'); ?></th>
-		<th><?php echo __('Occupation Id'); ?></th>
+		<th><?php echo __('Nome'); ?></th>
+		<th><?php echo __('Data de Nascimento'); ?></th>
+		<th><?php echo __('NUIT'); ?></th>
+		<th><?php echo __('Contacto'); ?></th>
+		<th><?php echo __('Nome de Utilizador'); ?></th>
+		<th><?php echo __('Senha'); ?></th>
+		<th><?php echo __('Tipo de Utilizador'); ?></th>
+		<th><?php echo __('Ocupacao'); ?></th>
 		<th class="actions"></th>
 	</tr>
 	<thead>
@@ -86,7 +86,7 @@
 			<td class="actions">
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'users', 'action' => 'view', $user['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('escape' => false)); ?>
-				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $user['id'])); ?>
+				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('escape' => false), __('Tens a certeza que queres apagar # %s?', $user['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -95,7 +95,7 @@
 <?php endif; ?>
 
 	<div class="actions">
-		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Novo Utilizador'), array('controller' => 'users', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 	</div>
 	</div><!-- end col md 12 -->
 </div>
